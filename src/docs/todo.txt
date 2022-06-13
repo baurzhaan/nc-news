@@ -46,8 +46,8 @@ Functionality of the API:
     - "/users" - show all users
 
   - What articles will you choose to display on the main page?
-    - all at first step.
-    - separate by pages later.
+    - ALL at first step.
+    - SEPARATE by pages later.
 
 2. Think how you will isolate the concerns of your project:
   - the structure of your components. DONE.
@@ -64,21 +64,21 @@ Functionality of the API:
   - "/articles" - show all articles. Don't forget to sort & order.
   - "/topics" - show all topics
   - "/users" - show all users
-What sort of specificity do you think you will need?
+What sort of specificity do you think you will need? NO IDEA AT THIS MOMENT.
 
 4. Think about what data each component will need. DONE.
-Where will it come from? See p. 2.
-When should components find their own data and when should they load it themselves? 
+Where will it come from? SEE p. 2.
+When should components find their own data and when should they load it themselves? WILL THINK DURING THE DEV.
 
 Focus on the simplest functionality first.
 
-6. Authentication is something we do not have on our backend. You should hardcode a logged in user. DONE. User will be showed in Navbar.
+6. Authentication is something we do not have on our backend. You should hardcode a logged in user. DONE - User will be showed in Navbar.
 
 7. Consider more complex functionality: 
-  - how do you want to allow changes to your database? 
-  - Think about how you will attribute users to posted comments etc. 
-  - How will you know what comments/articles a user should be allowed to delete? 
-  - How about sorting data, or paginating responses? 
-  - A good starting point would be to pick a single user and assuming that all new articles and comments are being posted by that user.
+  - how do you want to allow changes to your database? ALLOW ONLY AUHTORS TO DELETE THEIR ARTICLES/COMMENTS
+  - Think about how you will attribute users to posted comments etc. THERE IS AN AUTHOR_ID PROPERTY. 
+  - How will you know what comments/articles a user should be allowed to delete? ALLOW ONLY AUTHOR TO DELETE.
+  - How about sorting data, or paginating responses? MAKE APPROPRIATE FETCH REQUEST / SORT IT IN REACT APP.
+  - A good starting point would be to pick a single user and assuming that all new articles and comments are being posted by that user. NOTED.
 
 8. How are you going to make this a fluid and engaging experience for users, so they want to come back for more? NO IDEA AT THIS POINT.
