@@ -1,0 +1,84 @@
+1) Wireframing and Components - structure app -> figma
+
+- group related functionality together: probably "header, navbar, section, footer" DONE.
+- make components re-useable
+- don't make them over complicated, if no need for child component, don't create it.
+- construct component-tree to visualize the parent-child relationship
+
+2) Planning State
+
+- decide what information to hold in a state variable(s). 
+- keep the state variable(s) to minimal, single source of truth
+- the structure of the state variable(s) should allow to track all the information over time
+- for each state variable make a list of which components will need to access to that state in order to read that state
+- for each state variable make a list of which components will need to access to that state in order to update that state
+- the state variable is declared only in one component, which is high enough so that every component that needs access is beneath it
+- in this way the state variable and functions to update it can be passed down on props
+- "place your state as low as possible, but as high as necessary"
+- repeat until all of your state has been placed on component tree
+
+------------------
+
+Functionality of the API:
+
+1) Actions available for Articles:
+- list articles
+- add a comment to an article (article is identified by it's id)
+- increase the votes given for an article
+- delete the comment by it's id
+
+
+2) Actions available for Users
+  - list users
+
+3) Actions available for Topics
+  - list topics
+
+------------------
+
+1. Have a look at your API endpoints. 
+  - Think about what data you have available, and how you will structure your application. DONE.
+  - What routes will your application have?
+    - Header, Navbar, and Footer are out of Routes, because they don't change.
+    - "/" - show all articles
+    - "/articles" - show all articles. Don't forget to sort & order.
+    - "/topics" - show all topics
+    - "/users" - show all users
+
+  - What articles will you choose to display on the main page?
+    - all at first step.
+    - separate by pages later.
+
+2. Think how you will isolate the concerns of your project:
+  - the structure of your components. DONE.
+  - the sourcing of your data. DONE.
+    - Header: hardcoded.
+    - Articles: fetched from API.
+    - Comments: fetched from API. Depends on article ID.
+    - Users: fetched from API.
+    - Footer: hardcoded.
+  - the styling. WILL DO IT LATER.
+
+3. What sort of routing will your App use? DONE.
+  - "/" - show all articles
+  - "/articles" - show all articles. Don't forget to sort & order.
+  - "/topics" - show all topics
+  - "/users" - show all users
+What sort of specificity do you think you will need?
+
+4. Think about what data each component will need. DONE.
+Where will it come from? See p. 2.
+When should components find their own data and when should they load it themselves? 
+
+Focus on the simplest functionality first.
+
+6. Authentication is something we do not have on our backend. You should hardcode a logged in user. DONE. User will be showed in Navbar.
+
+7. Consider more complex functionality: 
+  - how do you want to allow changes to your database? 
+  - Think about how you will attribute users to posted comments etc. 
+  - How will you know what comments/articles a user should be allowed to delete? 
+  - How about sorting data, or paginating responses? 
+  - A good starting point would be to pick a single user and assuming that all new articles and comments are being posted by that user.
+
+8. How are you going to make this a fluid and engaging experience for users, so they want to come back for more? NO IDEA AT THIS POINT.
