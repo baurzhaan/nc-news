@@ -1,9 +1,9 @@
 1) Wireframing and Components - structure app -> figma
 
 - group related functionality together: probably "header, navbar, section, footer" DONE.
-- make components re-useable
-- don't make them over complicated, if no need for child component, don't create it.
-- construct component-tree to visualize the parent-child relationship
+- make components re-useable. WILL TRY TO DO.
+- don't make them over complicated, if no need for child component, don't create it. UNDERSTOOD.
+- construct component-tree to visualize the parent-child relationship. DONE.
 
 2) Planning State
 
@@ -40,10 +40,10 @@ Functionality of the API:
   - Think about what data you have available, and how you will structure your application. DONE.
   - What routes will your application have?
     - Header, Navbar, and Footer are out of Routes, because they don't change.
-    - "/" - show all articles
-    - "/articles" - show all articles. Don't forget to sort & order.
-    - "/topics" - show all topics
-    - "/users" - show all users
+    - "/" - SHOW all articles
+    - "/articles" - SHOW all articles. Don't forget to sort & order.
+    - "/topics" - SHOW all topics
+    - "/users" - SHOW all users
 
   - What articles will you choose to display on the main page?
     - ALL at first step.
@@ -53,17 +53,17 @@ Functionality of the API:
   - the structure of your components. DONE.
   - the sourcing of your data. DONE.
     - Header: hardcoded.
-    - Articles: fetched from API.
-    - Comments: fetched from API. Depends on article ID.
-    - Users: fetched from API.
+    - Articles: FETCHED from API.
+    - Comments: FETCHED from API. Depends on article ID.
+    - Users: FETCHED from API.
     - Footer: hardcoded.
   - the styling. WILL DO IT LATER.
 
 3. What sort of routing will your App use? DONE.
-  - "/" - show all articles
-  - "/articles" - show all articles. Don't forget to sort & order.
-  - "/topics" - show all topics
-  - "/users" - show all users
+  - "/" - SHOW all articles
+  - "/articles" - SHOW all articles. Don't forget to sort & order.
+  - "/topics" - SHOW all topics
+  - "/users" - SHOW all users
 What sort of specificity do you think you will need? NO IDEA AT THIS MOMENT.
 
 4. Think about what data each component will need. DONE.
