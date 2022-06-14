@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+
 import { Header } from './components/Header';
 import { Navbar } from './components/Navbar';
-import { Section } from './components/Section';
+import { ArticleList } from './components/ArticleList';
 import { Footer } from './components/Footer';
-
-import { Routes, Route } from 'react-router-dom';
-import { TestComponent } from './components/TestComponent';
+import { TopicList } from './components/TopicList';
 
 function App() {
   return (
@@ -14,10 +14,9 @@ function App() {
       <Header />
       <Navbar />
       <Routes>
-        <Route path="/" element={<Section />} />
-        <Route path="/test" element={<TestComponent />}/>
+        <Route exact path="/" element={<ArticleList />} />
+        <Route exact path="/topics" element={<TopicList />}/>
       </Routes>
-      
       <Footer />
     </div>
   );
