@@ -5,12 +5,19 @@ import { Navbar } from './components/Navbar';
 import { Section } from './components/Section';
 import { Footer } from './components/Footer';
 
+import { Routes, Route } from 'react-router-dom';
+import { TestComponent } from './components/TestComponent';
+
 function App() {
   return (
     <div className="App">
       <Header />
       <Navbar />
-      <Section />
+      <Routes>
+        <Route path="/" element={<Section />} />
+        <Route path="/test" element={<TestComponent />}/>
+      </Routes>
+      
       <Footer />
     </div>
   );
