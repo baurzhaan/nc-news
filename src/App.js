@@ -7,6 +7,7 @@ import { Navbar } from './components/Navbar';
 import { ArticleList } from './components/ArticleList';
 import { Footer } from './components/Footer';
 import { TopicList } from './components/TopicList';
+import { UserList } from './components/UserList';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/" element={<ArticleList />} />
         <Route exact path="/articles" element={<ArticleList />} />
         <Route exact path="/topics" element={<TopicList />}/>
+        <Route exact path="/users" element={<UserList />}/>
       </Routes>
       <Footer />
     </div>
