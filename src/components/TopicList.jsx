@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 export const TopicList = () => {
   
@@ -25,7 +25,9 @@ export const TopicList = () => {
       {
         topics.map(topic => {
           return (
-            <li key={ topic.slug }> <Link to={ topic.slug }>{ topic.slug }</Link> </li>
+            <li key={ topic.slug }>
+              <Link to={ topic.slug }>{ topic.slug }</Link> 
+            </li>
           )
         })
       }
