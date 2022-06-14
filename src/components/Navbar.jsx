@@ -9,4 +9,4 @@ export const Navbar = () => {
       <li> <Link to="/users">Users</Link> </li>
     </div>
   )
-}
+};
