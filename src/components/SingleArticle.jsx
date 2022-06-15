@@ -10,6 +10,7 @@ export const SingleArticle = () => {
   const [article, setArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [date, setDate] = useState("");
+  const [voted, setVoted] = useState(false);
 
   const getArticle = async () => {
     const fetchedData = await axios.get(baseURL);
@@ -23,6 +24,17 @@ export const SingleArticle = () => {
     setIsLoading(false);
   }, [date]);
 
+  const vote = (thumb) => {
+    if (!voted) {
+      setVoted(true);
+      thumb.target.disabled = true;
+      console.log(`change the vote by ${thumb.target.innerText} on the backend optimistically`);
+    } else {
+      thumb.target.disabled = true;
+      alert("Sorry, but you have already voted");
+    }
+  };
+
   if (isLoading) return <p>Topics are being loaded...</p>;
 
   return (
@@ -33,9 +45,9 @@ export const SingleArticle = () => {
       <p className="italic-text">created { date === "Invalid Date" ? "loading..." : date }</p>
       <p>{ article.body }</p>
       
-      <span id="thumb-down" onClick={() => {console.log("decrease")}}>&#128078;</span>
+      <button id="thumb-down" onClick={ vote }>&#128078;</button>
       <span id="votes">{ article.votes }</span>
-      <span id="thumb-up" onClick={() => {console.log("increase")}}>&#128077;</span>
+      <button id="thumb-up" onClick={ vote }>&#128077;</button>
       
       <p>Article comments: { article.comment_count }</p>
       
