@@ -22,7 +22,7 @@ export const ArticleList = () => {
   
   return (
     <div className='main'>
-      <h2>Article List</h2>
+      <h2>Articles</h2>
       <ul>{
         articles.map(article => {
           return (

@@ -22,7 +22,7 @@ export const TopicList = () => {
   
   return (
     <div className="main">
-      <h2>Topic List</h2>
+      <h2>Topics</h2>
       <ul>{
         topics.map(topic => {
           return (

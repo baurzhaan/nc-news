@@ -21,7 +21,7 @@ export const UserList = () => {
   
   return (
     <div className="main">
-      <h2>User List</h2>
+      <h2>Users</h2>
       <ul>{
         users.map(user => {
           return (

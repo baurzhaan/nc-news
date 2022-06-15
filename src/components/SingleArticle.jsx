@@ -31,11 +31,11 @@ export const SingleArticle = () => {
 
   const patchArticle = async (increment) => {
     try {
-      const patchRequest = await axios.patch(baseURL, {
+      const patchRequest = await axios.patch(baseURL + "dfdf", {
         "inc_votes" : increment
     });
     } catch (error) {
-      alert(error);
+      console.log(error, "<<< error");
     }
   };
 

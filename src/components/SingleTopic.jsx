@@ -23,14 +23,14 @@ if (isLoading) return <p>Topics are being loaded...</p>;
 
   return (
     <div className="main">
-      <h2>"{ slug }" articles</h2>
-      {
+      <h2>"{ slug }" topics</h2>
+      <ul>{
         articles.filter(article => article.topic === slug).map(article => {
           return (
             <li key={article.article_id}>{ article.title }</li>
           )
         })
-      }
+      }</ul>
     </div>
   )
 };
