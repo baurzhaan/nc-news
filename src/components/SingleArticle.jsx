@@ -19,8 +19,9 @@ export const SingleArticle = () => {
       setArticle(fetchedData.data);
       const fetchedDate = new Date(article.created_at);
       setDate(fetchedDate.toLocaleDateString());
-    } catch (error) {
-      alert(error);
+    } catch ({response}) {
+      const alertMessage = `Error message: ${response.data.msg}. Make sure that you are making a valid request. Please try again`;
+      alert(alertMessage);
     };
   };
 
@@ -31,12 +32,13 @@ export const SingleArticle = () => {
 
   const patchArticle = async (increment) => {
     try {
-      const patchRequest = await axios.patch(baseURL + "dfdf", {
+      const patchRequest = await axios.patch(baseURL, {
         "inc_votes" : increment
     });
-    } catch (error) {
-      console.log(error, "<<< error");
-    }
+    } catch ({response}) {
+      const alertMessage = `Error message: ${response.data.msg}. Make sure that you are making a valid request. Please try again`;
+      alert(alertMessage);
+    };
   };
 
   const toVote = ({target}) => {
