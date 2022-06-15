@@ -10,13 +10,18 @@ export const SingleArticle = () => {
   const [article, setArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [date, setDate] = useState("");
-  const [voted, setVoted] = useState(false);
+  
+  const [isVoted, setIsVoted] = useState(false);
 
   const getArticle = async () => {
-    const fetchedData = await axios.get(baseURL);
-    setArticle(fetchedData.data);
-    const fetchedDate = new Date(article.created_at);
-    setDate(fetchedDate.toLocaleDateString());
+    try {
+      const fetchedData = await axios.get(baseURL);
+      setArticle(fetchedData.data);
+      const fetchedDate = new Date(article.created_at);
+      setDate(fetchedDate.toLocaleDateString());
+    } catch (error) {
+      alert(error);
+    };
   };
 
   useEffect(() => {
@@ -24,13 +29,31 @@ export const SingleArticle = () => {
     setIsLoading(false);
   }, [date]);
 
-  const vote = (thumb) => {
-    if (!voted) {
-      setVoted(true);
-      thumb.target.disabled = true;
-      console.log(`change the vote by ${thumb.target.innerText} on the backend optimistically`);
+  const patchArticle = async (increment) => {
+    try {
+      const patchRequest = await axios.patch(baseURL, {
+        "inc_votes" : increment
+    });
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  const toVote = ({target}) => {
+    if (!isVoted) {
+      const increment = target.innerText === '👎' ? -1 : 1;
+
+      const tempArticle = {...article};
+      tempArticle.votes = tempArticle.votes + increment;
+      setArticle(tempArticle);
+
+      patchArticle(increment);
+
+      target.disabled = true;
+
+      setIsVoted(true);
     } else {
-      thumb.target.disabled = true;
+      target.disabled = true;
       alert("Sorry, but you have already voted");
     }
   };
@@ -45,9 +68,9 @@ export const SingleArticle = () => {
       <p className="italic-text">created { date === "Invalid Date" ? "loading..." : date }</p>
       <p>{ article.body }</p>
       
-      <button id="thumb-down" onClick={ vote }>&#128078;</button>
+      <button id="thumb-down" onClick={ toVote }>&#128078;</button>
       <span id="votes">{ article.votes }</span>
-      <button id="thumb-up" onClick={ vote }>&#128077;</button>
+      <button id="thumb-up" onClick={ toVote }>&#128077;</button>
       
       <p>Article comments: { article.comment_count }</p>
       
