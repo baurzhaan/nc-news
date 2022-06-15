@@ -1,21 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import { Routes, Route, useParams } from 'react-router-dom';
+
 import { Header } from './components/Header';
 import { Navbar } from './components/Navbar';
-import { Section } from './components/Section';
+import { ArticleList } from './components/ArticleList';
 import { Footer } from './components/Footer';
-
-import { Routes, Route } from 'react-router-dom';
-import { TestComponent } from './components/TestComponent';
+import { TopicList } from './components/TopicList';
+import { UserList } from './components/UserList';
+import { SingleTopic } from './components/SingleTopic';
 
 function App() {
   return (
     <div className="App">
       <Header />
       <Navbar />
+      
       <Routes>
-        <Route path="/" element={<Section />} />
-        <Route path="/test" element={<TestComponent />}/>
+        <Route exact path="/" element= {<ArticleList /> } />
+        <Route exact path="/articles" element={ <ArticleList /> } />
+        <Route exact path="/topics" element={ <TopicList /> }/>
+        <Route exact path="/topics/:slug" element={ <SingleTopic /> } />
+        <Route exact path="/users" element={ <UserList /> }/>
       </Routes>
       
       <Footer />
