@@ -58,8 +58,12 @@ ul {
 
 #thumb-down {
   cursor: pointer;
+  background: #ffffffff;
+  border-style: none;
 }
 
 #thumb-up {
   cursor: pointer;
+  background: #ffffffff;
+  border-style: none
 }
