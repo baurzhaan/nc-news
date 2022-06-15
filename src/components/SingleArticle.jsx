@@ -20,7 +20,7 @@ export const SingleArticle = () => {
   useEffect(() => {
     getArticle();
     setIsLoading(false);
-  }, []);
+  }, [date]);
 
   if (isLoading) return <p>Topics are being loaded...</p>;
 
@@ -33,7 +33,7 @@ export const SingleArticle = () => {
       <p>{ article.body }</p>
       <p>Article votes: { article.votes }</p>
       <p>Article comments: { article.comment_count }</p>
-      <p>Article created date: { date }</p>
+      <p>Article created date: { date === "Invalid Date" ? "loading..." : date }</p>
     </div>
   )
 };
