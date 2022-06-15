@@ -1,6 +1,7 @@
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import '../App.css';
 import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 export const SingleArticle = () => {
   
@@ -25,7 +26,7 @@ export const SingleArticle = () => {
   if (isLoading) return <p>Topics are being loaded...</p>;
 
   return (
-    <div>
+    <div className="main">
       <h2>article with id "{ article_id }" </h2>
       <p>Article title: { article.title }</p>
       <p>Article topic: { article.topic }</p>

@@ -1,6 +1,7 @@
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import '../App.css';
 import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 export const SingleTopic = () => {
   
@@ -21,7 +22,7 @@ export const SingleTopic = () => {
 if (isLoading) return <p>Topics are being loaded...</p>;
 
   return (
-    <div>
+    <div className="main">
       <h2>"{ slug }" articles</h2>
       {
         articles.filter(article => article.topic === slug).map(article => {

@@ -1,3 +1,4 @@
+import '../App.css';
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -20,9 +21,9 @@ export const ArticleList = () => {
   if (isLoading) return <p>Articles are being loaded...</p>;
   
   return (
-    <div>
+    <div className='main'>
       <h2>Article List</h2>
-      {
+      <ul>{
         articles.map(article => {
           return (
             <li key={ article.article_id }> 
@@ -30,7 +31,8 @@ export const ArticleList = () => {
             </li>
           )
         })
-      }
+      }</ul>
+      
     </div>
   )
 };
