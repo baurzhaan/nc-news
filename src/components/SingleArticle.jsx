@@ -27,14 +27,18 @@ export const SingleArticle = () => {
 
   return (
     <div className="main">
-      <h2>article with id "{ article_id }" </h2>
-      <p>Article title: { article.title }</p>
-      <p>Article topic: { article.topic }</p>
-      <p>Article author: { article.author }</p>
+      <h2>{ article.title }</h2>
+      <p className="italic-text"> of: { article.topic }</p>
+      <p className="italic-text"> by: { article.author }</p>
+      <p className="italic-text">created { date === "Invalid Date" ? "loading..." : date }</p>
       <p>{ article.body }</p>
-      <p>Article votes: { article.votes }</p>
+      
+      <span id="thumb-down" onClick={() => {console.log("decrease")}}>&#128078;</span>
+      <span id="votes">{ article.votes }</span>
+      <span id="thumb-up" onClick={() => {console.log("increase")}}>&#128077;</span>
+      
       <p>Article comments: { article.comment_count }</p>
-      <p>Article created date: { date === "Invalid Date" ? "loading..." : date }</p>
+      
     </div>
   )
 };

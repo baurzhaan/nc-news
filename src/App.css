@@ -45,4 +45,21 @@ footer {
 
 ul {  
   list-style-type: none;
-  } 
+}
+
+.italic-text {
+  font-style: italic;
+}
+
+#votes {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#thumb-down {
+  cursor: pointer;
+}
+
+#thumb-up {
+  cursor: pointer;
+}
