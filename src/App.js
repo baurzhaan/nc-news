@@ -9,6 +9,7 @@ import { Footer } from './components/Footer';
 import { TopicList } from './components/TopicList';
 import { UserList } from './components/UserList';
 import { SingleTopic } from './components/SingleTopic';
+import { SingleArticle } from './components/SingleArticle';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route exact path="/" element= {<ArticleList /> } />
         <Route exact path="/articles" element={ <ArticleList /> } />
+        <Route exact path="/articles/:article_id" element={ <SingleArticle /> } />
         <Route exact path="/topics" element={ <TopicList /> }/>
         <Route exact path="/topics/:slug" element={ <SingleTopic /> } />
         <Route exact path="/users" element={ <UserList /> }/>

@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 export const ArticleList = () => {
   
@@ -24,7 +25,9 @@ export const ArticleList = () => {
       {
         articles.map(article => {
           return (
-            <li key={article.article_id}>{ article.title }</li>
+            <li key={ article.article_id }> 
+              <Link to={ article.article_id.toString() }>{ article.title }</Link>
+            </li>
           )
         })
       }
