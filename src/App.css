@@ -1,3 +1,71 @@
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
 .App {
   text-align: center;
+}
+
+#outer-border {
+  border: 2px solid red;
+}
+
+header {
+  border: 2px solid blue;
+  grid-area: header;
+}
+
+.navbar {
+  grid-area: navbar;
+  border: 2px solid green;
+  text-align: left; 
+}
+
+.main {
+  grid-area: main;
+  border: 2px solid brown;
+  text-align: left;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+footer {
+  border: 2px solid blue;
+  grid-area: footer;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 
+    "header header header header"
+    "navbar main main main"
+    "footer footer footer footer";
+}
+
+ul {  
+  list-style-type: none;
+}
+
+.italic-text {
+  font-style: italic;
+}
+
+#votes {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#thumb-down {
+  cursor: pointer;
+  background: #ffffffff;
+  border-style: none;
+}
+
+#thumb-up {
+  cursor: pointer;
+  background: #ffffffff;
+  border-style: none
 }

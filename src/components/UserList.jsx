@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import '../App.css';
 import axios from "axios";
+import { useState, useEffect } from "react";
 
 export const UserList = () => {
   
@@ -19,15 +20,15 @@ export const UserList = () => {
   if (isLoading) return <p>Users are being loaded...</p>;
   
   return (
-    <div>
-      <h2>User List</h2>
-      {
+    <div className="main">
+      <h2>Users</h2>
+      <ul>{
         users.map(user => {
           return (
             <li key={ user.username }>{ user.name }</li>
           )
         })
-      }
+      }</ul>
     </div>
   )
 };
