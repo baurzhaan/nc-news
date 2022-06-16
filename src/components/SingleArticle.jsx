@@ -75,10 +75,8 @@ export const SingleArticle = () => {
       <button id="thumb-up" onClick={ toVote }>&#128077;</button>
       <span id="votes">{ article.votes }</span>
       <button id="thumb-down" onClick={ toVote }>&#128078;</button>
-      
-      <p className='italic-text'>comments: { article.comment_count }</p>
 
-      <Comments />
+      <Comments articleId={ article.article_id } comments_count={ article.comment_count }/>
 
     </div>
   )
