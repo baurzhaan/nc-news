@@ -66,9 +66,9 @@ export const SingleArticle = () => {
   return (
     <div className="main">
       <h2>{ article.title }</h2>
-      <p className="italic-text"> of: { article.topic }</p>
-      <p className="italic-text"> by: { article.author }</p>
-      <p className="italic-text">created { date === "Invalid Date" ? "loading..." : date }</p>
+      <p className="italic-text smaller-text"> of: { article.topic }</p>
+      <p className="italic-text smaller-text"> by: { article.author }</p>
+      <p className="italic-text smaller-text">created { date === "Invalid Date" ? "loading..." : date }</p>
       <p>{ article.body }</p>
       
       <span className="italic-text">like the article?</span>

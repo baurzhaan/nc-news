@@ -27,7 +27,7 @@ export const Comments = (props) => {
       <p className="italic-text">comments ({ props.comments_count })...</p>
       <ul className="ul-bullet-points">{ comments.map(comment => {
         return (
-          <li key={comment.comment_id} className="italic-text">
+          <li key={comment.comment_id} className="italic-text smaller-text">
             {comment.body}
           </li>
         )
