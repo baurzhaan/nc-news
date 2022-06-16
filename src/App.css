@@ -49,6 +49,10 @@ ul {
   list-style-type: none;
 }
 
+.ul-bullet-points {
+  list-style-type: circle;
+}
+
 .italic-text {
   font-style: italic;
 }

@@ -23,14 +23,13 @@ export const ArticleList = () => {
   return (
     <div className='main'>
       <h2>Articles</h2>
-      <ul>{
-        articles.map(article => {
+      <ul>{ articles.map(article => {
           return (
             <li key={ article.article_id }> 
               <Link to={ article.article_id.toString() }>{ article.title }</Link>
             </li>
           )
-        })
+        }) 
       }</ul>
       
     </div>
