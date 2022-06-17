@@ -1,6 +1,7 @@
 import "../App.css";
-import axios from "axios";
+// import axios from "axios";
 import { useState, useEffect } from "react";
+import { getData } from "../api/getData";
 
 export const Comments = (props) => {
   
@@ -9,16 +10,13 @@ export const Comments = (props) => {
 
   const baseURL = `https://be-news-app.herokuapp.com/api/articles/${props.articleId}/comments`;
 
-
-  const getComments = async () => {
-    const fetchedData = await axios.get(baseURL);
-    setComments(fetchedData.data);
-  };
-
   useEffect(() => {
-    getComments();
+    getData(baseURL)
+    .then((comments) => {
+      setComments(comments);
+    })
     setIsLoading(false);
-  }, [])
+  }, []);
 
   if (isLoading) return <p>Comments are being loaded...</p>;
 
