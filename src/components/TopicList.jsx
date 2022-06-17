@@ -2,6 +2,7 @@ import '../App.css';
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { getData } from '../api/getData';
 
 export const TopicList = () => {
   
@@ -9,12 +10,11 @@ export const TopicList = () => {
   const [topics, setTopics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const getTopics = async () => {
-    const fetchedData = await axios.get(baseURL);
-    setTopics(fetchedData.data);
-  };
   useEffect(() => {
-    getTopics();
+    getData(baseURL)
+    .then((topics) => {
+      setTopics(topics);
+    })
     setIsLoading(false);
   }, []);
 

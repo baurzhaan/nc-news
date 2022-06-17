@@ -1,6 +1,7 @@
 import '../App.css';
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { getData } from '../api/getData';
 
 export const UserList = () => {
   
@@ -8,12 +9,11 @@ export const UserList = () => {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const getUsers = async () => {
-    const fetchedData = await axios.get(baseURL);
-    setUsers(fetchedData.data);
-  };
   useEffect(() => {
-    getUsers();
+    getData(baseURL)
+    .then((users) => {
+      setUsers(users);
+    })
     setIsLoading(false);
   }, []);
 

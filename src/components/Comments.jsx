@@ -18,9 +18,9 @@ export const Comments = (props) => {
   useEffect(() => {
     getComments();
     setIsLoading(false);
-  });
+  }, [])
 
-  if (isLoading) return <p>Topics are being loaded...</p>;
+  if (isLoading) return <p>Comments are being loaded...</p>;
 
   return (
     <div>
