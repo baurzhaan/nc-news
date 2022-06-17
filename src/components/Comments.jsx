@@ -1,22 +1,23 @@
 import "../App.css";
-// import axios from "axios";
 import { useState, useEffect } from "react";
 import { getData } from "../api/getData";
 
 export const Comments = (props) => {
-  
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const articleId = props.articleId;
 
-  const baseURL = `https://be-news-app.herokuapp.com/api/articles/${props.articleId}/comments`;
-
+  const baseURL = `https://be-news-app.herokuapp.com/api/articles/${articleId}/comments`;
+  
   useEffect(() => {
-    getData(baseURL)
-    .then((comments) => {
-      setComments(comments);
-    })
-    setIsLoading(false);
-  }, []);
+    if (articleId) {
+      getData(baseURL)
+      .then((comments) => {
+        setComments(comments);
+      })
+      setIsLoading(false);
+    }
+  }, [articleId, comments]);
 
   if (isLoading) return <p>Comments are being loaded...</p>;
 
@@ -30,7 +31,6 @@ export const Comments = (props) => {
           </li>
         )
       })
-
       }</ul>
     </div>
   )
