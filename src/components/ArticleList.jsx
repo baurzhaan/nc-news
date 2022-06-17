@@ -2,7 +2,7 @@ import '../App.css';
 // import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getData } from '../api/getData';
+import { getData } from '../utils/apiCalls';
 
 export const ArticleList = () => {
   

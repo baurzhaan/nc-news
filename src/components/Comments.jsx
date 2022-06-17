@@ -1,6 +1,6 @@
 import "../App.css";
 import { useState, useEffect } from "react";
-import { getData } from "../api/getData";
+import { getData } from "../utils/apiCalls";
 
 export const Comments = (props) => {
   const [comments, setComments] = useState([]);
