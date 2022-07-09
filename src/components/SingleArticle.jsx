@@ -2,6 +2,7 @@ import '../App.css';
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Comments } from './Comments';
 
 export const SingleArticle = () => {
   
@@ -35,13 +36,13 @@ export const SingleArticle = () => {
       const patchRequest = await axios.patch(baseURL, {
         "inc_votes" : increment
     });
-    } catch ({response}) {
+    } catch ({ response }) {
       const alertMessage = `Error message: ${response.data.msg}. Make sure that you are making a valid request. Please try again`;
       alert(alertMessage);
     };
   };
 
-  const toVote = ({target}) => {
+  const toVote = ({ target }) => {
     if (!isVoted) {
       const increment = target.innerText === '👎' ? -1 : 1;
 
@@ -65,17 +66,18 @@ export const SingleArticle = () => {
   return (
     <div className="main">
       <h2>{ article.title }</h2>
-      <p className="italic-text"> of: { article.topic }</p>
-      <p className="italic-text"> by: { article.author }</p>
-      <p className="italic-text">created { date === "Invalid Date" ? "loading..." : date }</p>
+      <p className="italic-text smaller-text"> of: { article.topic }</p>
+      <p className="italic-text smaller-text"> by: { article.author }</p>
+      <p className="italic-text smaller-text">created { date === "Invalid Date" ? "loading..." : date }</p>
       <p>{ article.body }</p>
       
-      <button id="thumb-down" onClick={ toVote }>&#128078;</button>
-      <span id="votes">{ article.votes }</span>
+      <span className="italic-text">like the article?</span>
       <button id="thumb-up" onClick={ toVote }>&#128077;</button>
-      
-      <p>Article comments: { article.comment_count }</p>
-      
+      <span id="votes">{ article.votes }</span>
+      <button id="thumb-down" onClick={ toVote }>&#128078;</button>
+
+      <Comments articleId={ article.article_id } comments_count={ article.comment_count }/>
+
     </div>
   )
 };

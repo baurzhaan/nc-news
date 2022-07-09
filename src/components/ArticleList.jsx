@@ -1,7 +1,8 @@
 import '../App.css';
-import axios from "axios";
+// import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { getData } from '../utils/apiCalls';
 
 export const ArticleList = () => {
   
@@ -9,12 +10,11 @@ export const ArticleList = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const getArticles = async () => {
-    const fetchedData = await axios.get(baseURL);
-    setArticles(fetchedData.data);
-  };
   useEffect(() => {
-    getArticles();
+    getData(baseURL)
+    .then((articles) => {
+      setArticles(articles);
+    })
     setIsLoading(false);
   }, []);
 
@@ -23,14 +23,13 @@ export const ArticleList = () => {
   return (
     <div className='main'>
       <h2>Articles</h2>
-      <ul>{
-        articles.map(article => {
+      <ul>{ articles.map(article => {
           return (
             <li key={ article.article_id }> 
               <Link to={ article.article_id.toString() }>{ article.title }</Link>
             </li>
           )
-        })
+        }) 
       }</ul>
       
     </div>
